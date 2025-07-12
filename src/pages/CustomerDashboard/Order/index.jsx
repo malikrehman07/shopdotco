@@ -24,7 +24,7 @@ const Order = () => {
     } finally {
       setLoading(false);
     }
-  }, [token]);
+  }, []);
 
   useEffect(() => {
     fetchOrders();
