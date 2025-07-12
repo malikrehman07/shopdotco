@@ -15,7 +15,7 @@ const ProfileSettings = () => {
   const fetchSellerProfile = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get("https://shop-co-nbni.vercel.app/dashboard/seller-profile", {
+      const res = await axios.get("https://shop-co-nbni.vercel.app/dashboard/read-profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfile(res.data.user);
@@ -32,7 +32,7 @@ const ProfileSettings = () => {
     const token = localStorage.getItem("token");
     setUpdating(true);
     try {
-      const res = await axios.put("https://shop-co-nbni.vercel.app/dashboard/seller-profile", values, {
+      const res = await axios.put("https://shop-co-nbni.vercel.app/dashboard/update-profile", values, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfile(res.data.user);
@@ -55,7 +55,7 @@ const ProfileSettings = () => {
       onOk: async () => {
         const token = localStorage.getItem("token");
         try {
-          await axios.delete("https://shop-co-nbni.vercel.app/dashboard/seller-profile", {
+          await axios.delete("https://shop-co-nbni.vercel.app/dashboard/delete-profile", {
             headers: { Authorization: `Bearer ${token}` },
           });
           message.success("Account deleted");
@@ -72,9 +72,7 @@ const ProfileSettings = () => {
     fetchSellerProfile();
   }, []);
 
-  if (loading) {
-    return <Spin size="large" style={{ display: 'flex', justifyContent: 'center', height: '100vh' }} />;
-  }
+  if (loading) return <Spin size='Large' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', }} />
 
   return (
     <div className="dashboard-content">
@@ -86,9 +84,6 @@ const ProfileSettings = () => {
         initialValues={profile}
         className="mt-4"
       >
-        <Form.Item label="Store Name" name="storeName" rules={[{ required: true }]}>
-          <Input placeholder="Store Name" />
-        </Form.Item>
         <Form.Item label="Full Name" name="fullName" rules={[{ required: true }]}>
           <Input placeholder="Your Full Name" />
         </Form.Item>
@@ -103,7 +98,7 @@ const ProfileSettings = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" loading={updating}>
+          <Button type="primary" color='default' variant='solid' htmlType="submit" loading={updating}>
             Update Profile
           </Button>
           <Button danger className="mx-2" onClick={handleDelete}>
