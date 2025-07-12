@@ -106,7 +106,7 @@ const Address = () => {
             </Col>
           ))}
           <Col span={24} className='text-center'>
-            <Button type="dashed" color='default' variant='solid' onClick={handleAdd}>+ Add New Address</Button>
+            <Button type="primary" color='default' variant='solid' onClick={handleAdd}>+ Add New Address</Button>
           </Col>
         </Row>
       )}
@@ -116,6 +116,8 @@ const Address = () => {
         open={isModalOpen}
         onCancel={() => setIsModalOpen(false)}
         onOk={() => form.submit()}
+        centered
+        
       >
         <Form layout="vertical" form={form} onFinish={handleSubmit}>
           <Form.Item name="fullName" label="Full Name" rules={[{ required: true }]}>
