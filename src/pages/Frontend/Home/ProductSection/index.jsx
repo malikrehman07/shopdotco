@@ -22,7 +22,7 @@ const ProductSection = () => {
     const getProducts = useCallback(async () => {
         setLoading(true);
         try {
-            const res = await axios.get("http://localhost:8000/products/read");
+            const res = await axios.get("https://shop-co-nbni.vercel.app/products/read");
             setProducts(res.data.products);
         } catch (error) {
             window.notify("Error fetching products", "error");
