@@ -24,7 +24,7 @@ const EditProduct = () => {
 
     const fetchProduct = async () => {
         try {
-            const res = await axios.get(`http://localhost:8000/products/read/${id}`);
+            const res = await axios.get(`https://shop-co-nbni.vercel.app/products/read/${id}`);
             const data = res.data.product;
             form.setFieldsValue(data);
             setVariants(data.variants || []);

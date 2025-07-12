@@ -29,7 +29,7 @@ const CheckoutForm = () => {
     const handleChange = (e) => setState(s => ({ ...s, [e.target.name]: e.target.value }))
     const createPaymentIntent = async (amount) => {
         try {
-            const response = await axios.post("http://localhost:8000/create-payment-intent", {
+            const response = await axios.post("https://shop-co-nbni.vercel.app/create-payment-intent", {
                 amount: Math.round(amount * 100) // Stripe takes amounts in cents
             });
 
@@ -85,7 +85,7 @@ const CheckoutForm = () => {
         const order = { uid: user.uid, fullName, email, phoneNo, address, city, postalCode, delivery, coupon, status: "Processing", total: parseFloat(total.toFixed(2)), paymentIntentId: paymentIntent.id, cart }
 
         try {
-            const res = await axios.post("http://localhost:8000/checkout", order);
+            const res = await axios.post("https://shop-co-nbni.vercel.app/checkout", order);
             console.log("Order response:", res.data);
             setState(initialState);
             window.notify("Order created successfully ", "success");

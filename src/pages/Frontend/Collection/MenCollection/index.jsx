@@ -26,7 +26,7 @@ const MenCollection = () => {
   const getProducts = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:8000/collections/men`);
+      const res = await axios.get(`https://shop-co-nbni.vercel.app/collections/men`);
       setProducts(res.data.products);
 
     } catch (error) {

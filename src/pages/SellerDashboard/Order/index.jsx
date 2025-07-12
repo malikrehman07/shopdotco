@@ -16,7 +16,7 @@ const Order = () => {
         const updatedData = { status: "Shipped" };
 
         try {
-            await axios.put(`http://localhost:8000/dashboard/update/${order._id}`, updatedData, {
+            await axios.put(`https://shop-co-nbni.vercel.app/dashboard/update/${order._id}`, updatedData, {
                 headers: {
                     Authorization: `Bearer ${token}` // Only if your API requires token
                 }

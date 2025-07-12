@@ -41,7 +41,7 @@ const Register = () => {
         setIsProcessing(true)
 
         try {
-            const res = await axios.post("http://localhost:8000/auth/register", userData)
+            const res = await axios.post("https://shop-co-nbni.vercel.app/auth/register", userData)
             const token = res.data.token;
 
             localStorage.setItem("token", token);

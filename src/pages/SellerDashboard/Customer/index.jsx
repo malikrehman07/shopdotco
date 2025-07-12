@@ -15,7 +15,7 @@ const Customer = () => {
         const fetchOrders = async () => {
             const token = localStorage.getItem("token");
             try {
-                const res = await axios.get('http://localhost:8000/dashboard/order', {
+                const res = await axios.get('https://shop-co-nbni.vercel.app/dashboard/order', {
                     headers: {
                         Authorization: `Bearer ${token}`, // ✅ Must be "Bearer <token>"
                     }

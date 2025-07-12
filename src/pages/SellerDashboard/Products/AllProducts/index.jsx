@@ -25,7 +25,7 @@ const AllProducts = () => {
                 }
             }
 
-            await axios.delete(`http://localhost:8000/products/delete/${product._id}`, {
+            await axios.delete(`https://shop-co-nbni.vercel.app/products/delete/${product._id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -44,7 +44,7 @@ const AllProducts = () => {
     const getProducts = useCallback(async () => {
         setLoading(true);
         try {
-            const res = await axios.get("http://localhost:8000/products/read");
+            const res = await axios.get("https://shop-co-nbni.vercel.app/products/read");
             setProducts(res.data.products);
         } catch (error) {
             window.notify("Error fetching products", "error");

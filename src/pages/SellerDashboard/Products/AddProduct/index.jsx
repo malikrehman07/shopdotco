@@ -90,7 +90,7 @@ const ProductPage = () => {
     const product = {productId, title, description, category, imageUrls, variants };
 
     try {
-      const res = await axios.post("http://localhost:8000/products/add", product, {
+      const res = await axios.post("https://shop-co-nbni.vercel.app/products/add", product, {
         headers: {
           Authorization: `Bearer ${token}`, // ✅ Must be "Bearer <token>"
         }
