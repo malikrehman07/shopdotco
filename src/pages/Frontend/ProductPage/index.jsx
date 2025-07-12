@@ -53,7 +53,7 @@ const ProductPage = () => {
         const fetchProduct = async () => {
             setLoading(true);
             try {
-                const res = await axios.get(`http://localhost:8000/products/read/${id}`);
+                const res = await axios.get(`https://shop-co-nbni.vercel.app/products/read/${id}`);
                 console.log("Fetched product:", res.data.product);
                 setProduct(res.data.product);
             } catch (error) {

@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
         }
 
         try {
-            const res = await axios.post("http://localhost:8000/auth/user", {}, {
+            const res = await axios.post("https://shop-co-nbni.vercel.app/auth/user", {}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

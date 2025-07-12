@@ -11,7 +11,7 @@ const CartProvider = ({ children }) => {
     const addToCart = async (cartItem) => {
         if (user?.uid) {
             try {
-                const res = await axios.post("http://localhost:8000/cart/add", {
+                const res = await axios.post("https://shop-co-nbni.vercel.app/cart/add", {
                     ...cartItem,
                     userId: user.uid,
                 });
@@ -54,7 +54,7 @@ const CartProvider = ({ children }) => {
     const clearCart = async () => {
         if (user?.uid) {
             try {
-                await axios.delete(`http://localhost:8000/cart/clear/${user.uid}`);
+                await axios.delete(`https://shop-co-nbni.vercel.app/cart/clear/${user.uid}`);
             } catch (err) {
                 console.error("Error clearing cart:", err);
             }
@@ -71,7 +71,7 @@ const CartProvider = ({ children }) => {
         setIsAppLoading(true);
         try {
             if (user?.uid) {
-                const res = await axios.get(`http://localhost:8000/cart/${user.uid}`);
+                const res = await axios.get(`https://shop-co-nbni.vercel.app/cart/${user.uid}`);
                 setCart(res.data.cart);
             } else {
                 const localCart = JSON.parse(localStorage.getItem("guest_cart")) || [];
@@ -96,7 +96,7 @@ const CartProvider = ({ children }) => {
 
         if (user?.uid) {
             try {
-                await axios.delete(`http://localhost:8000/cart/remove/${id}`);
+                await axios.delete(`https://shop-co-nbni.vercel.app/cart/remove/${id}`);
                 setCart(prev => prev.filter(item => item._id !== id));
                 window.notify("Product removed successfully", "success");
             } catch (err) {
