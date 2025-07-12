@@ -15,7 +15,6 @@ const AuthProvider = ({ children }) => {
             setIsAppLoading(false)
             return
         }
-
         try {
             const res = await axios.post("https://shop-co-nbni.vercel.app/auth/user", {}, {
                 headers: {
@@ -49,7 +48,7 @@ const AuthProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ ...state, dispatch, handleLogout, isAppLoading, readProfile }}>
+        <AuthContext.Provider value={{ ...state, dispatch, handleLogout, isAppLoading, readProfile, token }}>
             {children}
         </AuthContext.Provider>
     )
