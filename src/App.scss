@@ -1,0 +1,22 @@
+@use "./scss/bootstrap";
+@use "./scss/navbar";
+@use "./scss/auth";
+@use "./scss/screen-loader";
+@use "./scss/admin";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif !important ;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
