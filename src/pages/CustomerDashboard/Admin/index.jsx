@@ -40,7 +40,7 @@ const Admin = () => {
     <div className="overview-content">
       <Title level={3}>Welcome back, <b>{user.firstName}</b>!</Title>
       <Title level={3} className='text-center' >Manage My Account</Title>
-
+{/* 
       <Row gutter={[16, 16]} className="mt-4">
         <Col xs={24} md={12} lg={8}>
           <Card className="metric-card" bordered={false}>
@@ -66,7 +66,7 @@ const Admin = () => {
             <Link to='' className='my-1' >Edit</Link>
           </Card>
         </Col>
-      </Row>
+      </Row> */}
 
       <Card className="mt-4">
         <Order />
