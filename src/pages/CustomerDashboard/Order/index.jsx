@@ -12,7 +12,7 @@ const Order = () => {
     const fetchOrders = useCallback(async () => {
         const token = localStorage.getItem("token")
     try {
-      const res = await axios.get("https://shop-co-nbni.vercel.app/order/my-orders", {
+      const res = await axios.get("https://shop-co-nbni.vercel.app/dashboard/my-orders", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

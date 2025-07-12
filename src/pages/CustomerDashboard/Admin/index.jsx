@@ -16,7 +16,7 @@ const Admin = () => {
       if (!token) return; // Optional: handle missing token
 
       try {
-        const res = await axios.get("https://shop-co-nbni.vercel.app/dashboard/order", {
+        const res = await axios.get("https://shop-co-nbni.vercel.app/dashboard/my-orders", {
           headers: {
             Authorization: `Bearer ${token}`, // ✅ Must include the token
           },
