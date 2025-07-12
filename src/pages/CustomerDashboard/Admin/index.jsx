@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Card, Row, Col, Typography } from 'antd';
 import Order from '../Order';
 import { useAuthContext } from '../../../context/Auth';
@@ -25,6 +25,10 @@ const Admin = () => {
     setLoading(false);
   }
 }, []); // ✅ Empty dependency array is fine here
+
+useEffect(() => {
+  fetchOrders();
+}, [fetchOrders]);
 
 
   return (
