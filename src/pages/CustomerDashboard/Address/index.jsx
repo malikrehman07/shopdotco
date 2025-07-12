@@ -80,7 +80,7 @@ const Address = () => {
     fetchAddresses();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Spin size='Large' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', }} />
 
   return (
     <>
@@ -100,13 +100,13 @@ const Address = () => {
                 <Paragraph>{address.fullName}</Paragraph>
                 <Paragraph>{address.street}, {address.city}</Paragraph>
                 <Paragraph>{address.zipCode}, {address.country}</Paragraph>
-                <Button onClick={() => handleEdit(address)} className='me-2'>Edit</Button>
+                <Button color='default' variant='solid' onClick={() => handleEdit(address)} className='me-2'>Edit</Button>
                 <Button danger onClick={() => handleDelete(address._id)}>Delete</Button>
               </Card>
             </Col>
           ))}
-          <Col span={24}>
-            <Button type="dashed" onClick={handleAdd}>+ Add New Address</Button>
+          <Col span={24} className='text-center'>
+            <Button type="dashed" color='default' variant='solid' onClick={handleAdd}>+ Add New Address</Button>
           </Col>
         </Row>
       )}

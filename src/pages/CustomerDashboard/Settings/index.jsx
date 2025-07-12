@@ -72,9 +72,7 @@ const ProfileSettings = () => {
     fetchProfile();
   }, []);
 
-  if (loading) {
-    return <Spin size="large" style={{ display: 'flex', justifyContent: 'center', height: '100vh' }} />;
-  }
+  if (loading) return <Spin size='Large' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', }} />
 
   return (
     <div className="dashboard-content">
@@ -103,7 +101,7 @@ const ProfileSettings = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" loading={updating}>
+          <Button type="primary" color='default' variant='solid' htmlType="submit" loading={updating}>
             Update Profile
           </Button>
           <Button danger className="mx-2" onClick={handleDelete}>
