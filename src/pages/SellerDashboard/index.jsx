@@ -1,6 +1,6 @@
 // DashboardLayout.js
 import React from 'react';
-import { Layout, Menu, Typography, Input, Button } from 'antd';
+import { Layout, Menu, Input, Button } from 'antd';
 import { AppstoreOutlined, BarChartOutlined, UserOutlined, SearchOutlined, SettingOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { Link, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import Admin from './Admin';
@@ -8,7 +8,7 @@ import { useAuthContext } from '../../context/Auth';
 import Order from './Order';
 import Products from './Products';
 import Customer from './Customer';
-import ProfileSettings from './ProfileSettings';
+// import ProfileSettings from './ProfileSettings';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
@@ -20,7 +20,7 @@ const SellerDashboard = () => {
         '/dashboard/product/*': '2',
         '/dashboard/orders': '3',
         '/dashboard/customers': '4',
-        '/dashboard/settings': '5',
+        // '/dashboard/settings': '5',
     };
 
     const location = useLocation();
@@ -50,9 +50,9 @@ const SellerDashboard = () => {
                     <Menu.Item key="4" icon={<UserOutlined />}>
                         <Link to="/dashboard/customers">Customer</Link>
                     </Menu.Item>
-                    <Menu.Item key="5" icon={<SettingOutlined />}>
+                    {/* <Menu.Item key="5" icon={<SettingOutlined />}>
                         <Link to="/dashboard/settings">Store Setting</Link>
-                    </Menu.Item>
+                    </Menu.Item> */}
                 </Menu>
             </Sider>
             <Layout>
@@ -69,7 +69,7 @@ const SellerDashboard = () => {
                         <Route path='/product/*' element={<Products />} />
                         <Route path='/orders' element={<Order />} />
                         <Route path='/customers' element={<Customer />} />
-                        <Route path='/settings' element={<ProfileSettings />} />
+                        {/* <Route path='/settings' element={<ProfileSettings />} /> */}
                     </Routes>
                     <Outlet />
                 </Content>
