@@ -32,7 +32,7 @@ const Order = () => {
     const handleDelete = async (order) => {
         const token = localStorage.getItem("token");
         try {
-            await axios.delete(`http://localhost:8000/dashboard/delete/${order._id}`, {
+            await axios.delete(`https://shop-co-nbni.vercel.app/dashboard/delete/${order._id}`, {
                 headers: {
                     Authorization: `Bearer ${token}` // Only if protected
                 }
@@ -50,7 +50,7 @@ const Order = () => {
         const fetchOrders = async () => {
             const token = localStorage.getItem("token");
             try {
-                const res = await axios.get('http://localhost:8000/dashboard/order', {
+                const res = await axios.get('https://shop-co-nbni.vercel.app/dashboard/order', {
                     headers: {
                         Authorization: `Bearer ${token}`, // ✅ Must be "Bearer <token>"
                     }

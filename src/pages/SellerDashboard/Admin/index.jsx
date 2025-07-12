@@ -3,6 +3,7 @@ import { Card, Row, Col, Typography } from 'antd';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import Order from '../Order';
 import { useAuthContext } from '../../../context/Auth';
+import axios from 'axios';
 const { Title, Text } = Typography;
 
 
@@ -12,6 +13,7 @@ const Admin = () => {
   const [orders, setOrders] = useState([]);
   const [totalEarnings, setTotalEarnings] = useState(0);
   const [averageOrder, setAverageOrder] = useState(0);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchOrders = async () => {
