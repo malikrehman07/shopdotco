@@ -10,25 +10,28 @@ const { Title, Paragraph } = Typography;
 
 const Admin = () => {
   const { user } = useAuthContext()
-  const fetchOrders = useCallback(async () => {
-  const token = localStorage.getItem("token");
-  try {
-    const res = await axios.get("https://shop-co-nbni.vercel.app/dashboard/my-orders", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    setOrders(res.data.orders || []);
-  } catch (err) {
-    console.error("Error fetching orders:", err);
-  } finally {
-    setLoading(false);
-  }
-}, []); // ✅ Empty dependency array is fine here
+  useEffect(() => {
+  const fetchOrders = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
 
-useEffect(() => {
+    try {
+      const res = await axios.get("https://shop-co-nbni.vercel.app/dashboard/my-orders", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setOrders(res.data.orders || []);
+    } catch (err) {
+      console.error("Error fetching orders:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   fetchOrders();
-}, [fetchOrders]);
+}, []);
+
 
 
   return (
