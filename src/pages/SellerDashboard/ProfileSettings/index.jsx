@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form, Input, Spin, Typography, message, Modal } from 'antd';
 import axios from 'axios';
-import { useAuthContext } from '../../../context/Auth';
+import { useAuthContext } from '../../../context/Auth'; // make sure the context is shared
 
 const { Title } = Typography;
 
 const ProfileSettings = () => {
-  const { user, handleLogout }  = useAuthContext();
+  const { user, logoutUser } = useAuthContext();
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState(null);
   const [updating, setUpdating] = useState(false);
 
-  const fetchProfile = async () => {
+  const fetchSellerProfile = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get("https://shop-co-nbni.vercel.app/dashboard/profile", {
+      const res = await axios.get("https://shop-co-nbni.vercel.app/dashboard/seller-profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfile(res.data.user);
@@ -32,7 +32,7 @@ const ProfileSettings = () => {
     const token = localStorage.getItem("token");
     setUpdating(true);
     try {
-      const res = await axios.put("https://shop-co-nbni.vercel.app/dashboard/profile", values, {
+      const res = await axios.put("https://shop-co-nbni.vercel.app/dashboard/seller-profile", values, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfile(res.data.user);
@@ -47,7 +47,7 @@ const ProfileSettings = () => {
 
   const handleDelete = async () => {
     Modal.confirm({
-      title: "Are you sure you want to delete your account?",
+      title: "Are you sure you want to delete your seller account?",
       content: "This action cannot be undone!",
       okText: "Delete",
       okType: "danger",
@@ -55,11 +55,11 @@ const ProfileSettings = () => {
       onOk: async () => {
         const token = localStorage.getItem("token");
         try {
-          await axios.delete("https://shop-co-nbni.vercel.app/dashboard/profile", {
+          await axios.delete("https://shop-co-nbni.vercel.app/dashboard/seller-profile", {
             headers: { Authorization: `Bearer ${token}` },
           });
           message.success("Account deleted");
-          handleLogout();
+          logoutUser();
         } catch (err) {
           message.error("Error deleting account");
           console.error(err);
@@ -69,7 +69,7 @@ const ProfileSettings = () => {
   };
 
   useEffect(() => {
-    fetchProfile();
+    fetchSellerProfile();
   }, []);
 
   if (loading) {
@@ -78,7 +78,7 @@ const ProfileSettings = () => {
 
   return (
     <div className="dashboard-content">
-      <Title level={2} className="text-center">Profile Settings</Title>
+      <Title level={2} className="text-center">Seller Profile Settings</Title>
       <Form
         form={form}
         layout="vertical"
@@ -86,20 +86,20 @@ const ProfileSettings = () => {
         initialValues={profile}
         className="mt-4"
       >
-        <Form.Item label="First Name" name="firstName" rules={[{ required: true }]}>
-          <Input placeholder="First Name" />
+        <Form.Item label="Store Name" name="storeName" rules={[{ required: true }]}>
+          <Input placeholder="Store Name" />
         </Form.Item>
-        <Form.Item label="Last Name" name="lastName" rules={[{ required: true }]}>
-          <Input placeholder="Last Name" />
+        <Form.Item label="Full Name" name="fullName" rules={[{ required: true }]}>
+          <Input placeholder="Your Full Name" />
         </Form.Item>
         <Form.Item label="Email" name="email" rules={[{ required: true, type: 'email' }]}>
-          <Input placeholder="Email" disabled />
+          <Input disabled />
         </Form.Item>
         <Form.Item label="Phone" name="phone">
           <Input placeholder="Phone Number" />
         </Form.Item>
         <Form.Item label="Bio" name="bio">
-          <Input.TextArea rows={3} placeholder="About yourself..." />
+          <Input.TextArea rows={3} placeholder="About your store or business..." />
         </Form.Item>
 
         <Form.Item>

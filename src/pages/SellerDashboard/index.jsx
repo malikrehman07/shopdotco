@@ -8,6 +8,7 @@ import { useAuthContext } from '../../context/Auth';
 import Order from './Order';
 import Products from './Products';
 import Customer from './Customer';
+import ProfileSettings from './ProfileSettings';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
@@ -44,13 +45,13 @@ const SellerDashboard = () => {
                         </Menu.Item>
                     </SubMenu>
                     <Menu.Item key="3" icon={<ShoppingCartOutlined />}>
-                        <Link to="/dashboard/order">Orders</Link>
+                        <Link to="/dashboard/orders">Orders</Link>
                     </Menu.Item>
                     <Menu.Item key="4" icon={<UserOutlined />}>
-                        <Link to="/dashboard/customer">Customer</Link>
+                        <Link to="/dashboard/customers">Customer</Link>
                     </Menu.Item>
                     <Menu.Item key="5" icon={<SettingOutlined />}>
-                        <Link to="/dashboard/setting">Store Setting</Link>
+                        <Link to="/dashboard/settings">Store Setting</Link>
                     </Menu.Item>
                 </Menu>
             </Sider>
@@ -66,8 +67,9 @@ const SellerDashboard = () => {
                     <Routes>
                         <Route path='/admin' element={<Admin />} />
                         <Route path='/product/*' element={<Products />} />
-                        <Route path='/order' element={<Order />} />
-                        <Route path='/customer' element={<Customer />} />
+                        <Route path='/orders' element={<Order />} />
+                        <Route path='/customers' element={<Customer />} />
+                        <Route path='/settings' element={<ProfileSettings />} />
                     </Routes>
                     <Outlet />
                 </Content>

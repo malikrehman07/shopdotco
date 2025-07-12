@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Card, Row, Col, Typography } from 'antd';
 import Order from '../Order';
 import { useAuthContext } from '../../../context/Auth';
@@ -10,6 +10,8 @@ const { Title, Paragraph } = Typography;
 
 const Admin = () => {
   const { user } = useAuthContext()
+  const [loading,setLoading] = useState(true) 
+  const [orders,setOrders] = useState([]) 
   useEffect(() => {
   const fetchOrders = async () => {
     const token = localStorage.getItem("token");

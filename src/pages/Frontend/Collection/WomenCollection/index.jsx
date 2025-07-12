@@ -89,11 +89,11 @@ const MenCollection = () => {
             )
           })}
         </Row>
-        <Row className='mt-5'>
+        {/* <Row className='mt-5'>
           <Col span={24}>
             <Pagination align='center' defaultCurrent={1} total={50} />
           </Col>
-        </Row>
+        </Row> */}
       </div>
       <NewsLetter />
     </main>
