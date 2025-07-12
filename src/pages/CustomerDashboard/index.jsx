@@ -3,8 +3,8 @@ import React from 'react';
 import { Layout, Menu,  Input, Button } from 'antd';
 import { BarChartOutlined, EnvironmentOutlined  , SearchOutlined, SettingOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { Link, Outlet, Route, Routes, useLocation } from 'react-router-dom';
-import Admin from './Admin';
 import { useAuthContext } from '../../context/Auth';
+import Admin from './Admin';
 import Order from './Order';
 import Address from './Address';
 import Settings from './Settings';
@@ -14,8 +14,8 @@ const CustomerDashboard = () => {
     const { handleLogout } = useAuthContext()
 
     const pathKeyMap = {
-        '/customer': '1',
-        '/customer/orders': '2',
+        '/customer/overview': '1',
+        '/customer/order': '2',
         '/customer/address': '3',
         '/customer/profile-settings': '4',
     };

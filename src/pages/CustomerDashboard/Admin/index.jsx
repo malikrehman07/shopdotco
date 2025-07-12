@@ -10,26 +10,21 @@ const { Title, Paragraph } = Typography;
 
 const Admin = () => {
   const { user } = useAuthContext()
-  useEffect(() => {
-    const fetchOrders = async () => {
-      const token = localStorage.getItem("token"); // ✅ Make sure this is defined inside the function
-      if (!token) return; // Optional: handle missing token
-
-      try {
-        const res = await axios.get("https://shop-co-nbni.vercel.app/dashboard/my-orders", {
-          headers: {
-            Authorization: `Bearer ${token}`, // ✅ Must include the token
-          },
-        });
-
-        setOrders(res.data.orders || []);
-      } catch (err) {
-        console.error("Error fetching orders:", err);
-      }
-    };
-
-    fetchOrders();
-  }, []);
+  const fetchOrders = useCallback(async () => {
+  const token = localStorage.getItem("token");
+  try {
+    const res = await axios.get("https://shop-co-nbni.vercel.app/dashboard/my-orders", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    setOrders(res.data.orders || []);
+  } catch (err) {
+    console.error("Error fetching orders:", err);
+  } finally {
+    setLoading(false);
+  }
+}, []); // ✅ Empty dependency array is fine here
 
 
   return (
