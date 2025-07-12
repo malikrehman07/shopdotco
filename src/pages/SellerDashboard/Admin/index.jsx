@@ -24,7 +24,18 @@ const Admin = () => {
             Authorization: `Bearer ${token}`, // ✅ Must be "Bearer <token>"
           }
         })
-        setOrders(res.data.orders || []);
+        const fetchedOrders = res.data.orders || [];
+        setOrders(fetchedOrders);
+
+        // ✅ Calculate total and average
+        const total = fetchedOrders.reduce((sum, order) => {
+          const orderTotal = order.cart?.reduce((subtotal, item) => {
+            return subtotal + (parseFloat(item?.selectedVariant?.price || 0) * item?.quantity);
+          }, 0);
+          return sum + orderTotal;
+        }, 0);
+
+        const count = fetchedOrders.length;
         setTotalEarnings(total.toFixed(2));
         setAverageOrder(count > 0 ? (total / count).toFixed(2) : 0);
       } catch (err) {
@@ -36,9 +47,6 @@ const Admin = () => {
 
     fetchOrders()
   }, [])
-
-
-
 
 
   return (
