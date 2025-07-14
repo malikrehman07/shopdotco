@@ -167,15 +167,26 @@ const CheckoutForm = () => {
                                 <Col>${subtotal.toFixed(2)}</Col>
                             </Row>
 
-                            <Row justify="space-between" className='mb-2'>
-                                <Col>Discount</Col>
-                                <Col>- ${discount.toFixed(2)}</Col>
-                            </Row>
+                            <Form layout="vertical" className='mb-4'>
+                                <Form.Item label="Enter Coupon Code">
+                                    <Input
+                                        placeholder="Enter your coupon (e.g., SAVE10)"
+                                        value={coupon}
+                                        onChange={(e) => setCoupon(e.target.value)}
+                                    />
+                                </Form.Item>
 
-                            <Row justify="space-between" className='mb-2'>
-                                <Col>Delivery</Col>
-                                <Col>${deliveryCost.toFixed(2)}</Col>
-                            </Row>
+                                <Form.Item label="Delivery Option">
+                                    <Radio.Group
+                                        onChange={(e) => setDelivery(e.target.value)}
+                                        value={delivery}
+                                    >
+                                        <Radio value="standard">Standard (Free)</Radio>
+                                        <Radio value="express">Express ($10)</Radio>
+                                    </Radio.Group>
+                                </Form.Item>
+                            </Form>
+
 
                             <Divider />
 
