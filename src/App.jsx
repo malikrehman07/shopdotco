@@ -4,6 +4,7 @@ import Routes from "./pages/Routes"
 import { ConfigProvider } from 'antd';
 import { useAuthContext } from './context/Auth';
 import ScreenLoader from './components/ScreenLoader';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 function App() {
   const { isAppLoading } = useAuthContext()
   return (
@@ -14,6 +15,7 @@ function App() {
           ? <ScreenLoader />
           : <Routes />
         }
+        <SpeedInsights />
       </ConfigProvider>
       {/* </ConfigProvider> */}
     </>
