@@ -174,7 +174,7 @@ const ProductPage = () => {
                         </Row>
                         <Row className='mt-3'>
                             <Col span={24}>
-                                <Button type="primary" color='default' variant='solid' size='large' shape='round' onClick={handleBuyNow(product)} block >Buy Now</Button>
+                                <Button type="primary" color='default' variant='solid' size='large' shape='round' block >Buy Now</Button>
                             </Col>
                         </Row>
                     </Col>
