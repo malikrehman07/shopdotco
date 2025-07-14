@@ -102,8 +102,8 @@ const CheckoutForm = () => {
     };
 
     const location = useLocation();
-    const product = location.state?.product;
-    if (!product) return <p>No product selected</p>;
+    const item = location.state?.item;
+    if (!item) return <p>No item selected</p>;
 
     return (
         <main style={{ backgroundColor: "#ededed" }}>
