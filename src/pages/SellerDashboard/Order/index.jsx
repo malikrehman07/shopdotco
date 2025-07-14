@@ -106,7 +106,17 @@ const Order = () => {
                                                     </td>
                                                     <td>{product.selectedVariant?.price}</td>
                                                     {/* <td>{order.createdAt.toDate().toLocaleString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false,}).replace(',', '')}</td> */}
-                                                    <td>{order.createdAt}</td>
+                                                    {/* <td>{order.createdAt}</td> */}
+                                                    <td>
+                                                        {new Date(order.createdAt).toLocaleString('en-GB', {
+                                                            day: '2-digit',
+                                                            month: 'short',
+                                                            year: 'numeric',
+                                                            hour: '2-digit',
+                                                            minute: '2-digit',
+                                                            hour12: false,
+                                                        }).replace(',', '')}
+                                                    </td>
                                                     <td>{order.status}</td>
                                                     <td>
                                                         <Space>
