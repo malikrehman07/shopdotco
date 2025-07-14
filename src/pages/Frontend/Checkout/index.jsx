@@ -26,6 +26,9 @@ const CheckoutForm = () => {
     const [delivery, setDelivery] = useState("standard")
     const [coupon, setCoupon] = useState("")
     const [isProcessing, setIsProcessing] = useState(false);
+    const location = useLocation();
+    const buyNowItem = location.state?.product;
+    const cartItems = buyNowItem ? [buyNowItem] : cart;
     const handleChange = (e) => setState(s => ({ ...s, [e.target.name]: e.target.value }))
     const createPaymentIntent = async (amount) => {
         try {
@@ -100,10 +103,6 @@ const CheckoutForm = () => {
         message.success('Order placed successfully!');
         navigate('/thank-you', { state: { total, delivery, cart: cartItems, address } });
     };
-
-    const location = useLocation();
-    const buyNowItem = location.state?.product;
-    const cartItems = buyNowItem ? [buyNowItem] : cart;
 
     return (
         <main style={{ backgroundColor: "#ededed" }}>
