@@ -29,9 +29,25 @@ const ProductPage = () => {
     const increment = () => setQuantity(q => q + 1);
     const decrement = () => setQuantity(q => (q > 1 ? q - 1 : 1));
 
-    const handleBuyNow = (product) => {
-        navigate("/checkout", { state: { product } });
+    const handleBuyNow = () => {
+        if (!selectedVariant) {
+            return window.notify("Please select a size or variant", "error");
+        }
+
+        const cartItem = {
+            productId: id,
+            title: product.title,
+            image: product.imageUrls?.[0],
+            selectedVariant: selectedVariant,
+            quantity: quantity,
+            uid: user?.uid || null,
+            addedAt: new Date().toISOString(),
+        };
+
+        navigate("/checkout", { state: { product: cartItem } });
     };
+
+
 
     const handleAddToCart = () => {
         if (!selectedVariant) {
@@ -174,7 +190,7 @@ const ProductPage = () => {
                         </Row>
                         <Row className='mt-3'>
                             <Col span={24}>
-                                <Button type="primary" color='default' variant='solid' size='large' shape='round' block >Buy Now</Button>
+                                <Button type="primary" color='default' variant='solid' size='large' shape='round' block onClick={handleBuyNow} >Buy Now</Button>
                             </Col>
                         </Row>
                     </Col>
