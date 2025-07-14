@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Typography, Spin, Row, Col, Flex, Rate, Button, Space, Card, Divider, Radio, Breadcrumb } from 'antd';
 import { Carousel } from 'antd';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
@@ -24,6 +24,7 @@ const ProductPage = () => {
     const [selectedVariant, setSelectedVariant] = useState(null);
     const { addToCart } = useCartContext();
     const { user } = useAuthContext();
+    const navigate = useNavigate()
 
     const increment = () => setQuantity(q => q + 1);
     const decrement = () => setQuantity(q => (q > 1 ? q - 1 : 1));
@@ -170,7 +171,7 @@ const ProductPage = () => {
                         </Row>
                         <Row className='mt-3'>
                             <Col span={24}>
-                                <Button type="primary" color='default' variant='solid' size='large' shape='round' block >Buy Now</Button>
+                                <Button type="primary" color='default' variant='solid' size='large' shape='round' onClick={() => navigate("/checkout")} block >Buy Now</Button>
                             </Col>
                         </Row>
                     </Col>
