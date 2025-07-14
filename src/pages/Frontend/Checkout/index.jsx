@@ -168,13 +168,13 @@ const CheckoutForm = () => {
                             </Row>
 
                             <Form layout="vertical" className='mb-4'>
-                                <Form.Item label="Enter Coupon Code">
-                                    <Input
-                                        placeholder="Enter your coupon (e.g., SAVE10)"
-                                        value={coupon}
-                                        onChange={(e) => setCoupon(e.target.value)}
-                                    />
-                                </Form.Item>
+                                        <Form.Item label="Enter Coupon Code">
+                                            <Input
+                                                placeholder="Enter your coupon (e.g., SAVE10)"
+                                                value={coupon}
+                                                onChange={(e) => setCoupon(e.target.value)}
+                                            />
+                                        </Form.Item>
 
                                 <Form.Item label="Delivery Option">
                                     <Radio.Group
