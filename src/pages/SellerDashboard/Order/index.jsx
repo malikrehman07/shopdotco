@@ -92,7 +92,7 @@ const Order = () => {
                                     return (
                                         <React.Fragment key={i}>
                                             {cartItems.map((product, index) => (
-                                                <tr key={index} style={{ textAlign: 'start', verticalAlign: 'middle' }}>
+                                                <tr key={index} style={{ alignItems:'center' }}>
                                                     <td>{order._id}</td>
                                                     <td>
                                                         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
