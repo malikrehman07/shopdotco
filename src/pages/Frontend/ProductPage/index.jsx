@@ -29,6 +29,9 @@ const ProductPage = () => {
     const increment = () => setQuantity(q => q + 1);
     const decrement = () => setQuantity(q => (q > 1 ? q - 1 : 1));
 
+    const handleBuyNow = (product) => {
+        navigate("/checkout", { state: { product } });
+    };
 
     const handleAddToCart = () => {
         if (!selectedVariant) {
@@ -171,7 +174,7 @@ const ProductPage = () => {
                         </Row>
                         <Row className='mt-3'>
                             <Col span={24}>
-                                <Button type="primary" color='default' variant='solid' size='large' shape='round' onClick={() => navigate("/checkout")} block >Buy Now</Button>
+                                <Button type="primary" color='default' variant='solid' size='large' shape='round' onClick={handleBuyNow(product)} block >Buy Now</Button>
                             </Col>
                         </Row>
                     </Col>
