@@ -41,7 +41,7 @@ const CheckoutForm = () => {
     };
 
 
-    const subtotal = cart.reduce((sum, item) => {
+    const subtotal = cartItems.reduce((sum, item) => {
         const price = item.selectedVariant?.specialPrice || item.selectedVariant?.price || item.price;
         return sum + price * (item.quantity || 1);
     }, 0);
@@ -82,7 +82,7 @@ const CheckoutForm = () => {
             return;
         }
 
-        const order = { uid: user.uid, fullName, email, phoneNo, address, city, postalCode, delivery, coupon, status: "Processing", total: parseFloat(total.toFixed(2)), paymentIntentId: paymentIntent.id, cart }
+        const order = { uid: user.uid, fullName, email, phoneNo, address, city, postalCode, delivery, coupon, status: "Processing", total: parseFloat(total.toFixed(2)), paymentIntentId: paymentIntent.id, cart: cartItems }
 
         try {
             const res = await axios.post("https://shop-co-nbni.vercel.app/checkout", order);
@@ -95,14 +95,15 @@ const CheckoutForm = () => {
         } finally {
             setIsProcessing(false);
         }
-        await clearCart();
+        if (!buyNowItem) await clearCart();
 
         message.success('Order placed successfully!');
-        navigate('/thank-you', { state: { total, delivery, cart, address } });
+        navigate('/thank-you', { state: { total, delivery, cart: cartItems, address } });
     };
 
     const location = useLocation();
-    const item = location.state?.item;
+    const buyNowItem = location.state?.product;
+    const cartItems = buyNowItem ? [buyNowItem] : cart;
 
     return (
         <main style={{ backgroundColor: "#ededed" }}>
@@ -137,7 +138,7 @@ const CheckoutForm = () => {
                         <div className="card rounded-4 p-4">
                             <Title level={3} className='mb-3'>Order Summary</Title>
 
-                            {cart.map((item, idx) => {
+                            {cartItems.map((item, idx) => {
                                 const price = item.selectedVariant?.specialPrice || item.selectedVariant?.price || item.price;
                                 return (
                                     <div key={idx} style={{ marginBottom: 16, borderBottom: '1px solid #eee', paddingBottom: 8 }}>
