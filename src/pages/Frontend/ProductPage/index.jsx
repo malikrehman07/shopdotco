@@ -125,7 +125,7 @@ const ProductPage = () => {
                         <Carousel autoplay dots={false}>
                             {product.imageUrls?.map((imgUrl, i) => (
                                 <div key={i}>
-                                    <img src={imgUrl} alt={`Product ${i + 1}`} className='img-fluid' />
+                                    <img src={imgUrl} alt={`Product ${i + 1}`}  className='img-fluid' />
                                 </div>
                             ))}
                         </Carousel>
@@ -136,7 +136,7 @@ const ProductPage = () => {
                         <Row>
                             <Col span={24}>
                                 <Title level={2}>{product.title}</Title>
-                                <p className='mb-1'><strong>SKU:</strong> {selectedVariant?.sku}</p>
+                                <p className='mb-1'><strong>SKU:</strong> {selectedVariant?.sku || product.variants?.[0]?.sku}</p>
                             </Col>
                         </Row>
                         <Row gutter={[8, 8]} className='mb-2'>
