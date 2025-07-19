@@ -42,7 +42,7 @@ const ProductSection = () => {
                         <Col xs={12} sm={12} md={12} lg={6} key={product.id}>
                             <div className="card border-0" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                                 <div style={{ cursor: 'pointer' }} onClick={() => navigate(`/collection/${product.category}/product/${product._id}`)} >
-                                    <img src={product.imageUrls?.[0]} alt={product.alt} style={{ width: "400px", objectFit: "cover" }} className="img-fluid rounded-4" />
+                                    <img src={product.imageUrls?.[0]} alt={product.alt} style={{ height: "400px", objectFit: "cover" }} className="img-fluid rounded-4" />
                                     <Title level={5} className='mt-2'  >{product.title}</Title>
                                 </div>
                                 <div className="mb-1">
