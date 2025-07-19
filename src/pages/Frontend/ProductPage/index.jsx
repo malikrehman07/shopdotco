@@ -169,7 +169,7 @@ const ProductPage = () => {
                         </Row>
                         <Row className='mb-1'>
                             <Col span={24}>
-                                <p className='mb-1'><strong>Stock:</strong> {selectedVariant?.items}</p>
+                                <p className='mb-1'><strong>Stock:</strong> {selectedVariant?.items || selectedVariant?.[0]?.items}</p>
                                 {/* <Title level={3} className='mb-1' >{selectedVariant?.price ? <>${selectedVariant?.specialPrice} <strike style={{ color: "#c9c6c5" }}>${selectedVariant?.price}</strike></> : <>${product.variants?.specialPrice}</>}</Title> */}
                                 <Title level={3} className='mb-1' >{selectedVariant ? (selectedVariant.specialPrice ? (<>${selectedVariant.specialPrice}{' '} <strike style={{ color: '#c9c6c5' }}>${selectedVariant.price}</strike></>) : (<>${selectedVariant.price}</>)) : (<>${product.variants?.[0]?.price}</>)}</Title>
                             </Col>
