@@ -125,7 +125,7 @@ const ProductPage = () => {
                         <Carousel autoplay dots={false}>
                             {product.imageUrls?.map((imgUrl, i) => (
                                 <div key={i}>
-                                    <img src={imgUrl} alt={`Product ${i + 1}`} style={{width:"600px"}}  className='img-fluid' />
+                                    <img src={imgUrl} alt={`Product ${i + 1}`} style={{width:"550px"}}  className='img-fluid' />
                                 </div>
                             ))}
                         </Carousel>
