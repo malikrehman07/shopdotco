@@ -29,7 +29,7 @@ const Hero = () => {
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs={24} sm={24} md={24} lg={12} className='h-100"'>
+                    <Col xs={24} sm={24} md={24} lg={12} className='h-100'>
                         <img src={Website} alt="Fashion" className='img-fluid' style={{ maxHeight: '650px' }} />
                     </Col>
                 </Row>
