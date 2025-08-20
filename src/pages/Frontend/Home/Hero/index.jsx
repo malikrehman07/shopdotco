@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Col, Row, Typography } from 'antd'
+import { Button, Col, Image, Row, Typography } from 'antd'
 import Website from "../../../Assets/images/Website.svg"
 
 
@@ -30,7 +30,7 @@ const Hero = () => {
                         </Row>
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={12} className='h-100'>
-                        <img src={Website} alt="Fashion" className='img-fluid' style={{ maxHeight: '700px' }} />
+                        <Image src={Website} alt="Fashion" className='img-fluid' style={{ maxHeight: '650px' }} />
                     </Col>
                 </Row>
             </div>
