@@ -90,7 +90,7 @@ const MenCollection = () => {
                 <div className="card border-0" style={{ width: "100%", height: '100%', display: 'flex', flexDirection: 'column' }}>
                   <div style={{ cursor: 'pointer' }} onClick={() => navigate(`/collection/${product.category}/product/${product.id}`)} >
                     <img src={product.imageUrls?.[0]} alt={product.alt} style={{ width: "400px", height:"300px", objectFit: "cover" }} className="img-fluid rounded-4" />
-                    <Title level={5} className='mt-2' style={{height:"40px"}}  >{product.title}</Title>
+                    <Title level={5} className='mt-2' style={{height:"40px", overflow:'hidden'}}  >{product.title}</Title>
                   </div>
                   <div className="mb-1">
                     <Flex gap="small" align='center'>
