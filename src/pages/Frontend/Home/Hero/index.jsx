@@ -30,7 +30,7 @@ const Hero = () => {
                         </Row>
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={12} className='h-100'>
-                        <img src="https://res.cloudinary.com/djpvxvokp/image/upload/v1755674366/Website_xivybs.svg" alt="Fashion" className='img-fluid' style={{ maxHeight: '650px' }} />
+                        <img src="https://res.cloudinary.com/djpvxvokp/image/upload/v1755674626/Website_plnmsp.svg" alt="Fashion" className='img-fluid' style={{ maxHeight: '650px' }} />
                     </Col>
                 </Row>
             </div>
