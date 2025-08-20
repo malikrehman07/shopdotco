@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button, Col, Image, Row, Typography } from 'antd'
-import Website from "../../../Assets/images/Website.svg"
+import { Button, Col, Row, Typography } from 'antd'
+// import Website from "../../../Assets/images/Website.svg"
 
 
 const { Title, Paragraph } = Typography
@@ -30,7 +30,7 @@ const Hero = () => {
                         </Row>
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={12} className='h-100'>
-                        <Image src={Website} alt="Fashion" className='img-fluid' style={{ maxHeight: '650px' }} />
+                        <img src="https://res.cloudinary.com/djpvxvokp/image/upload/v1755673128/Website_rx8ueh.svg" alt="Fashion" className='img-fluid' style={{ maxHeight: '650px' }} />
                     </Col>
                 </Row>
             </div>
