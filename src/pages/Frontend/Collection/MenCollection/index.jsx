@@ -69,10 +69,10 @@ const MenCollection = () => {
           {products.map((product) => {
             return (
               <Col xs={12} sm={12} md={12} lg={6} key={product.id}>
-                <div className="card border-0" style={{width:"100%", height: '100%', display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ cursor: 'pointer' }} onClick={() => navigate(`/collection/${product.category}/product/${product._id}`)} >
-                    <img src={product.imageUrls?.[0]} alt={product.alt} style={{ height: "400px", objectFit: "contain" }} className="img-fluid rounded-4" />
-                    <Title level={5} className='mt-2' >{product.title}</Title>
+                <div className="card border-0" style={{ width: "100%", height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ cursor: 'pointer' }} onClick={() => navigate(`/collection/${product.category}/product/${product.id}`)} >
+                    <img src={product.imageUrls?.[0]} alt={product.alt} style={{ width: "400px", objectFit: "cover" }} className="img-fluid rounded-4" />
+                    <Title level={5} className='mt-2'  >{product.title}</Title>
                   </div>
                   <div className="mb-1">
                     <Flex gap="small" align='center'>
@@ -81,8 +81,8 @@ const MenCollection = () => {
                     </Flex>
                   </div>
                   <div>
-                    <Title level={4} className='mt-0'>{product.variants?.[0]?.specialPrice ? <>${product.variants?.[0]?.specialPrice} <strike style={{ color: "#c9c6c5" }}>${product.variants?.[0]?.price}</strike></> : <>${product.variants?.[0]?.price}</>}</Title>
-                    <Button type="primary" color='default' shape="round" size='large' variant='solid' block onClick={() => { handleAddToCart(product) }} >Add To Cart</Button>
+                    <Title level={4} className='mb-2'>{product.variants?.[0]?.specialPrice ? <>${product.variants?.[0]?.specialPrice} <strike style={{ color: "#c9c6c5" }}>${product.variants?.[0]?.price}</strike></> : <>${product.variants?.[0]?.price}</>}</Title>
+                    <Button type="primary" color='default' shape="round" size='large' variant='solid' block onClick={() => handleAddToCart(product)}>Add To Cart</Button>
                   </div>
                 </div>
               </Col>
