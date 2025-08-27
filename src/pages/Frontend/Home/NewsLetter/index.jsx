@@ -15,7 +15,7 @@ const NewsLetter = () => {
         if (!window.isEmail(email)) { return window.notify("Please Enter Your Email", "error") }
         try {
             setLoading(true);
-            const res = await axios.post("https://shopdotco.vercel.app/newsletter/subscribe", { email });
+            const res = await axios.post("https://shop-co-nbni.vercel.app/newsletter/subscribe", { email });
 
             if (res.data?.success) {
                 window.notify("Subscribed successfully! 🎉", 'success');
