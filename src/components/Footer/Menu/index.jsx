@@ -28,8 +28,8 @@ const Menu = () => {
           </Col>
           <Col xs={12} sm={12} md={12} lg={6} >
             <Title level={5}>FAQ</Title>
-            <Link to='/dashboard/customer' className="nav-link py-1">Account</Link>
-            <Link to='/dashboard/order' className="nav-link py-1">Order</Link>
+            <Link to='/customer/overview' className="nav-link py-1">Account</Link>
+            <Link to='/customer/order' className="nav-link py-1">Order</Link>
             <Link to='/' className="nav-link py-1">Delivery</Link>
             <Link to='/' className="nav-link py-1">Payments</Link>
           </Col>
