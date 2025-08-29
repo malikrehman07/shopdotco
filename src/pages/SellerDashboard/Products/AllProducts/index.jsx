@@ -63,7 +63,7 @@ const AllProducts = () => {
                     <Col span={24}>
                         <Title level={2} className='text-center'>Products</Title>
                     </Col>
-                    <Col lg={24}>
+                    <Col span={24}>
                         <div className="table-responsive">
                             <table className="table">
                                 <thead>

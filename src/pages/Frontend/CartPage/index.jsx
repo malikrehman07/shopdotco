@@ -26,7 +26,7 @@ const CartPage = () => {
           <Col span={24}>
             <Title level={1}>Your Cart</Title>
           </Col>
-          <Col lg={24}>
+          <Col span={24}>
             <div className="table-responsive">
               <table className="table">
                 <thead>
