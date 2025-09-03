@@ -88,7 +88,7 @@ const MenCollection = () => {
               // </Col>
               <Col xs={12} sm={12} md={12} lg={6} key={product.id}>
                 <div className="card border-0" style={{ width: "100%", height: '100%', display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ cursor: 'pointer' }} onClick={() => navigate(`/collection/${product.category}/product/${product.id}`)} >
+                  <div style={{ cursor: 'pointer' }} onClick={() => navigate(`/collection/${product.category}/product/${product._id}`)} >
                     <img src={product.imageUrls?.[0]} alt={product.alt} style={{ width: "400px", height:"300px", objectFit: "cover" }} className="img-fluid rounded-4" />
                     <Title level={5} className='mt-2' style={{height:"50px", overflow:'hidden'}}  >{product.title}</Title>
                   </div>
