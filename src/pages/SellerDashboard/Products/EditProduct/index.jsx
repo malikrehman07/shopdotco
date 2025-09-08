@@ -111,7 +111,7 @@ const EditProduct = () => {
 
             const token = localStorage.getItem("token");
 
-            await axios.put(`http://localhost:8000/products/update/${id}`, {
+            await axios.put(`https://shop-co-nbni.vercel.app/products/update/${id}`, {
                 ...values,
                 imageUrls,
                 variants,
