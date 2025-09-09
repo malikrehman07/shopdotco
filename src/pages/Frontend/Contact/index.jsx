@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Form, Input, Button, Typography, message } from 'antd';
+import axios from "axios"
 
 const { Title, Paragraph } = Typography;
 const { TextArea } = Input;
 const Contact = () => {
     const [form] = Form.useForm();
+    const [loading, setLoading] = useState(false);
 
-    const onFinish = (values) => {
-        console.log('Form values:', values);
-        message.success('Message sent successfully!');
-        form.resetFields();
+    const onFinish = async (values) => {
+        setLoading(true);
+        try {
+            await axios.post("https://shop-co-nbni.vercel.app/contact", values);
+            window.notify("Message sent successfully!", "success");
+        } catch (err) {
+            console.error(err);
+            window.notify("Failed to send message", "error");
+        } finally {
+            setLoading(false);
+            form.resetFields();
+        }
     };
     return (
         <main>
