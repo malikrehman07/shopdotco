@@ -21,13 +21,13 @@ const Frontend = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/collection/*' element={<Collection />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
           <Route path="/collection/:category/product/:id" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckOutPrivateRoute Component={CheckoutPage} />} />
           <Route path="/thank-you" element={<ThankYouPage />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
           {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
           <Route path='*' element={<NoPage />} />
         </Routes>
