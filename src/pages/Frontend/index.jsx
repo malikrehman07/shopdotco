@@ -28,7 +28,6 @@ const Frontend = () => {
           <Route path='/contact' element={<Contact />} />
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
           <Route path="/thank-you" element={<ThankYouPage />} />
-          {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
           <Route path='*' element={<NoPage />} />
         </Routes>
       <Footer />
